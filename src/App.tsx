@@ -1,7 +1,7 @@
-import "./App.css";
+import { Page } from "./Page/Page";
 
 function App() {
-  return <>Notion Clone</>;
+  return <Page />;
 }
 
 export default App;
