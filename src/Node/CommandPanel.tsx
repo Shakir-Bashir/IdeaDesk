@@ -18,6 +18,8 @@ const SupportedNodeTypes: SupprtedNodeType[] = [
   { value: "text", name: "Text" },
   { value: "list", name: "List" },
   { value: "heading1", name: "heading1" },
+  { value: "page", name: "page" },
+  { value: "image", name: "image" },
   { value: "heading2", name: "heading2" },
   { value: "heading3", name: "heading3" },
 ];

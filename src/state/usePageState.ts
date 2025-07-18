@@ -1,12 +1,10 @@
-// import { title } from "process";
 import { type NodeData, type NodeType, type Page } from "../utils/types";
-
-import { useImmer } from "use-immer";
-// import { Cover } from "../Page/Cover";
 import { arrayMove } from "@dnd-kit/sortable";
+import { useSyncedState } from "./useSyncedState";
+import { updatPage } from "../utils/updatePage";
 
 export const usePageState = (initialState: Page) => {
-  const [page, setPage] = useImmer<Page>(initialState);
+  const [page, setPage] = useSyncedState(initialState, updatPage);
 
   const addNode = (node: NodeData, index: number) => {
     setPage((draft) => {
@@ -60,7 +58,7 @@ export const usePageState = (initialState: Page) => {
   return {
     nodes: page.nodes,
     title: page.title,
-    Cover: page.cover,
+    cover: page.cover,
     changeNodeType,
     changeNodeValue,
     addNode,

@@ -1,11 +1,11 @@
 import { Page } from "./Page/Page";
 import { AppStateProvidedr } from "./state/AppStateContext";
-import { createPage } from "./utils/createPage";
+// import { createPage } from "./utils/createPage";
 import { Route, Routes } from "react-router-dom";
+import { Auth } from "./auth/auth";
+import { Private } from "./auth/private";
 
-const initialState = createPage();
-
-const Auth = () => <div>Auth</div>;
+// const initialState = createPage();
 
 function App() {
   return (
@@ -15,18 +15,26 @@ function App() {
       <Route
         path="/:id"
         element={
-          <AppStateProvidedr initialState={initialState}>
-            <Page />;
-          </AppStateProvidedr>
+          <Private
+            component={
+              <AppStateProvidedr>
+                <Page />;
+              </AppStateProvidedr>
+            }
+          />
         }
       />
 
       <Route
         path="/"
         element={
-          <AppStateProvidedr initialState={initialState}>
-            <Page />;
-          </AppStateProvidedr>
+          <Private
+            component={
+              <AppStateProvidedr>
+                <Page />;
+              </AppStateProvidedr>
+            }
+          />
         }
       />
     </Routes>
